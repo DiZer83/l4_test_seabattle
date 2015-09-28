@@ -17,8 +17,8 @@ public class SeaBattle {
 
         do {
             field.show();
-            int shoot = player.getShoot();
-            field.doShoot(shoot);
+            //int shoot =
+            field.doShoot(player.getShoot());
         } while (field.isNotGameOver());
         field.show();
     }
