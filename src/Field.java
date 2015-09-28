@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Created by igor on 27.09.15.
  */
@@ -12,13 +14,17 @@ public class Field {
     }
 
     boolean isNotGameOver() {
-        return cells[ship.position] == 'X';
+        return ship.hp > 0;//cells[ship.position] == 'X';
     }
 
-    void setShip(int position) {
-        cells[position] = 'X';
+    void setShip() {
+        Random random = new Random();
         ship = new Ship();
-        ship.position = position;
+        ship.position = random.nextInt(11 - ship.hp); // Позиция первой палубы
+
+        for (int i = ship.position; i < ship.position + ship.hp; i++) {
+            cells[i] = 'X';
+        }
     }
 
     void show() {
@@ -36,8 +42,16 @@ public class Field {
                 System.out.println("Уже стреляли");
                 break;
             case 'X':
-                System.out.println("Корабль потоплен");
+                ship.hp--;
                 cells[shoot] = '@';
+                if (ship.hp > 0) {
+                    System.out.println("Попал");
+                } else {
+                    System.out.println("Потоплен");
+                }
+                break;
+            case '@':
+                System.out.println("В эту палубу уже было попадание");
                 break;
             default:
                 System.out.println("ERROR");

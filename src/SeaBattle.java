@@ -11,14 +11,12 @@ public class SeaBattle {
         Player player = new Player();
 
         field.init();
-        field.setShip(4);
+        field.setShip();
 
         System.out.println("GAME START");
-
         do {
             field.show();
-            //int shoot =
-            field.doShoot(player.getShoot());
+            field.doShoot(player.getShoot() - 1);
         } while (field.isNotGameOver());
         field.show();
     }
