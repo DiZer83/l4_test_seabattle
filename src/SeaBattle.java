@@ -23,6 +23,3 @@ public class SeaBattle {
         field.show();
     }
 }
-// Игорь Шемякин:Single Responsibility Principle?
-
-//todo DZ Павел_2:а может и сразу скормить методу выстрела
