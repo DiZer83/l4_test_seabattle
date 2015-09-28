@@ -11,6 +11,8 @@ public class Player {
 
         Scanner scanner = new Scanner(System.in);
         do {
+            System.out.print("Сделайте выстрел (от 1 до 10): ");
+
             if (scanner.hasNextInt()) {
                 shoot = scanner.nextInt(); // обрез бумаги
                 break;
